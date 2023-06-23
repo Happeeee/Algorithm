@@ -22,7 +22,7 @@ int main() {
 			break;
 
 		target += i; // target과 같다면 그 자체로 가능
-	}				 // 그보다 작다면 target - 1 까지는 만들 수 있으니 거기에 더하면 만들 수 있음
+	}		     // 그보다 작다면 target - 1 까지는 만들 수 있으니 거기에 더하면 만들 수 있음
 
 	cout << target;
 }
