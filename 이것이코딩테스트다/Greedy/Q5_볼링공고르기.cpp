@@ -29,3 +29,22 @@ int main() {
 	cout << result;
 
 }
+
+// int main() { 해답 풀이(Good)
+	
+// 	cin >> n >> m;
+
+// 	for (int i = 0; i < n; i++) { // 무게별 카운트
+// 		int x;
+// 		cin >> x;
+// 		cnt[x]++;
+// 	}
+
+// 	for (int i = 1; i <= m; i++) { // 핵심로직 : 자신의 개수 * 자신을 제외한 나머지 개수(n)
+// 		n -= cnt[i];	       // 이때 조합은 순서가 다르면 중복이니 앞에 것을 지우면서 나아감 (n 개수 자체를 줄인다)
+// 		result += cnt[i] * n;
+// 	}
+
+// 	cout << result;
+
+// }
