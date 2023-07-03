@@ -2,6 +2,7 @@ import java.util.*;
 
 // 프로그래머스 코딩테스트 문제풀이 전략 : 자바편
 // p.60 풀이 참조
+// 기능별로 메소드를 분할하는 방식에 익숙해질 필요
 
 class Solution {
     private static class Point {
