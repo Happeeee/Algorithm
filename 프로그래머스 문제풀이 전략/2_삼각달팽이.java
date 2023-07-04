@@ -5,7 +5,7 @@ class Solution {
         //int[] answer = {};        
         int x = 0, y = 0, count = 0;
         
-        int[][] arr = new int[n + 2][n + 2];
+        int[][] arr = new int[n + 2][n + 2]; // 배열 크기 주의!
                         
         while(true) {    
             
