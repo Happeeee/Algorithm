@@ -19,10 +19,7 @@ class Solution {
                 counts[2]++;            
         }
         
-        for(int i = 0; i < 3; i++) {
-            if(counts[i] > max)
-                max = counts[i];                
-        }
+        max = Math.max(counts[0], Math.max(counts[1], counts[2]));
         
         for(int i = 0; i < 3; i++) {
             if(counts[i] == max)
