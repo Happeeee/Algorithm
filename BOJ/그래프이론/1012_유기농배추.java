@@ -29,7 +29,7 @@ public class Main {
 			int[][] map = new int[50][50];
 			m = sc.nextInt(); // 가로
 			n = sc.nextInt(); // 세로
-			k = sc.nextInt(); // 배추 수
+			k = sc.nextInt();
 			
 			for(int i = 0; i < k ; i++) {
 				x = sc.nextInt(); // 가로
