@@ -1,3 +1,5 @@
+package Ps;
+
 import java.util.*;
 
 public class Main { 	
@@ -47,12 +49,13 @@ public class Main {
 						count++;
 					}					
 				}
-			}	
-            
+			}
+			
 			result = Math.max(result, count);
 		}
 		
-		System.out.println(result);						
+		System.out.println(result);
+						
 	}
 }
 
