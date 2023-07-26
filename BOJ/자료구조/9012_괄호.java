@@ -14,7 +14,10 @@ public class Main {
 
             for(char c : str.toCharArray()) {
                 if(c == ')') {
-                    if(s.isEmpty()) isVps = false;
+                    if(s.isEmpty()) {
+                        isVps = false;
+                        break;
+                    }
                     else s.pop();
                 } else
                     s.push(c);
