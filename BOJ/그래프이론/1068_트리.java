@@ -17,6 +17,7 @@ public class Main {
         if(childCount == 0) return 1; // 자식 노드가 없으면 리프노드
         else return leafCount; // 있다면 자식 노드들로 부터 올라온 리프노드 수 반환
     }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
