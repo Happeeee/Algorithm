@@ -19,6 +19,7 @@ public class Main {
             s.push(i);
         }
 
+        //표준 출력 입출력 반복시 속도 문제로 StringBuilder
         for(int i = 1; i <= n; i++) {
             if(nges[i] == 0) sb.append(-1);
             else sb.append(nges[i]);
