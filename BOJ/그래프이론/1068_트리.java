@@ -6,10 +6,10 @@ public class Main {
 
     private static int dfs(int here) {
         int leafCount = 0;
-        int childCount = 0; // 자식을 지운게 아니라 안가는 것이므로 자식 개수 직접 체크
+        int childCount = 0; // 연결을 끊은게 아니라 탐색만 안할 뿐이므로 자식 개수 직접 체크
 
         for(int there : adj[here]) {
-            if(there == d) continue; // 지운 노드라면 진행x, for문 이후에 자식 노드 개수를 알 수 있음
+            if(there == d) continue; // 지운 노드라면 진행x, for문을 탈출해야 자식 노드 개수를 알 수 있음
             leafCount += dfs(there);
             childCount++;
         }
