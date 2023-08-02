@@ -56,8 +56,7 @@ public class Main {
         for(int i = 1; i <= n; i++)
             if(max < arr[i])
                 max = arr[i];
-
-        //표준 출력 입출력 반복시 속도 문제로 StringBuilder
+        
         for(int i = 1; i <= n; i++) {
             if(arr[i] == max)
                 System.out.print(i + " ");
