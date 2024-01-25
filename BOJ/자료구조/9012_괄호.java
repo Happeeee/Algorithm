@@ -1,31 +1,33 @@
-import java.util.*;
-public class Main {    
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
-        int n = sc.nextInt();
-        sc.nextLine();
-
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
         for(int i = 0; i < n; i++) {
-            String str = sc.nextLine();
-
-            Stack<Character> s = new Stack<>();
-            boolean isVps = true;
-
-            for(char c : str.toCharArray()) {
-                if(c == ')') {
-                    if(s.isEmpty()) {
-                        isVps = false;
-                        break;
-                    }
-                    else s.pop();
-                } else
-                    s.push(c);
-            }
-
-            if(s.isEmpty() && isVps) System.out.println("YES");
-            else System.out.println("NO");
+            String str = br.readLine();
+            System.out.println(isVPS(str));
         }
     }
-}
 
+    private static String isVPS(String str) {
+        Stack<Character> s = new Stack<>();
+        for(char c : str.toCharArray()) {
+            if(c == '(') {
+                s.push(c);
+            } else {
+                if(s.isEmpty()) {
+                    return "NO";
+                }
+                s.pop();
+            }
+        }
+        if(!s.isEmpty()) {
+            return "NO";
+        }
+        return "YES";
+    }
+}
