@@ -1,25 +1,31 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class Main {
-    public static char solution(String str) {
-        char reader = ' '; int max = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for(char c : str.toCharArray())
-            map.put(c, map.getOrDefault(c, 0) + 1);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        String s = br.readLine();
+        System.out.println(solution(s));
+    }
 
-        for(char key : map.keySet()) {
-            if(map.get(key) > max) {
-                reader = key;
-                max = map.get(key);
+    private static Character solution(String s) {
+        int maxCount = 0;
+        char leader = ' ';
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for(char c : map.keySet()) {
+            if(map.get(c) > maxCount) {
+                maxCount = map.get(c);
+                leader = c;
             }
         }
-        return reader;
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        String str = sc.next();
-        System.out.println(solution(str));
+        return leader;
     }
 }
-
