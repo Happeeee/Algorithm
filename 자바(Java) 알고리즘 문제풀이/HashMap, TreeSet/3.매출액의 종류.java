@@ -1,33 +1,43 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static List<Integer> solution(int[] arr, int n, int k) {
-        List<Integer> result = new ArrayList<>();
-        Map<Integer, Integer> map = new HashMap<>();
-
-        for(int i = 0; i < k; i++)
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
-        result.add(map.size());
-
-        int lt = 0;
-        for(int rt = k; rt < n; rt++) {
-            map.put(arr[rt], map.getOrDefault(arr[rt], 0) + 1);
-            map.put(arr[lt], map.get(arr[lt]) - 1);
-            if(map.get(arr[lt]) == 0) map.remove(arr[lt]);
-            lt++;
-            result.add(map.size());
-        }
-        return result;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+        String s = br.readLine();
+        System.out.println(solution(n, k, s));
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
 
+    private static String solution(int n, int k, String s) {
+        StringTokenizer st = new StringTokenizer(s);
+        StringBuilder sb = new StringBuilder();
+        HashMap<Integer, Integer> map = new HashMap<>();
         int[] arr = new int[n];
         for(int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        for(int i : solution(arr, n, k)) System.out.print(i + " ");
+
+        for(int i = 0; i < k; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        }
+        sb.append(map.size()).append(" ");
+
+        for(int i = k; i < n; i++) {
+            int first = arr[i - k];
+            if(map.get(first) == 1) {
+                map.remove(first);
+            } else {
+                map.put(first, map.get(first) - 1);
+            }
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+            sb.append(map.size()).append(" ");
+        }
+        return sb.toString();
     }
 }
