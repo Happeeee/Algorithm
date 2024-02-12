@@ -13,32 +13,32 @@ public class Main {
     public static ArrayList<Integer>[] adj;
     public static boolean[] visited;
 
-    public static void dfs(int here) {
-        visited[here] = true;
-        System.out.print(here + " ");
+    public static void dfs(int from) {
+        visited[from] = true;
+        System.out.print(from + " ");
 
-        for(int there : adj[here]) {
-            if(visited[there]) {
+        for(int to : adj[from]) {
+            if(visited[to]) {
                 continue;
             }
-            dfs(there);
+            dfs(to);
         }
     }
 
-    public static void bfs(int u) {
+    public static void bfs(int start) {
         Queue<Integer> q = new LinkedList<>();
-        visited[u] = true;
-        q.add(u);
+        visited[start] = true;
+        q.add(start);
 
         while(!q.isEmpty()) {
-            int here = q.poll();
-            System.out.print(here + " ");
-            for(int there : adj[here]) {
-                if(visited[there]) {
+            int from = q.poll();
+            System.out.print(from + " ");
+            for(int to : adj[from]) {
+                if(visited[to]) {
                     continue;
                 }
-                visited[there] = true;
-                q.add(there);
+                visited[to] = true;
+                q.add(to);
             }
         }
     }
