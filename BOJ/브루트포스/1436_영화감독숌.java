@@ -1,16 +1,22 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int count = 0;
 
         int i = 666;
-
-        for(;; i++) { // 666 부터 올라가면서
-            if(Integer.toString(i).contains("666")) n--; // 종말의 수를 만나면 n 줄이기
-            if(n == 0) break;
+        while(true) {
+            if(Integer.toString(i++).contains("666")) {
+                count++;
+                if(count == n) {
+                    System.out.println(i);
+                    return;
+                }
+            }
         }
-
-        System.out.println(i); // n 번째 종말의 수
     }
 }
