@@ -6,9 +6,9 @@ import java.util.Collections;
 
 public class Main {
     static int k;
+    static String max = "0", min = "9999999999";
     static char[] arr = new char[10];
     static ArrayList<Integer> list = new ArrayList<>();
-    static ArrayList<String> result = new ArrayList<>();
     static boolean[] visited = new boolean[10];
 
     public static boolean canGo(char c, int a, int b) {
@@ -22,7 +22,9 @@ public class Main {
             for(int i : list) {
                 sb.append(i);
             }
-            result.add(sb.toString());
+            String s = sb.toString();
+            if(max.compareTo(s) < 0) max = s;
+            if(min.compareTo(s) > 0) min = s;
             return;
         }
 
@@ -48,8 +50,7 @@ public class Main {
         }
 
         go(0);
-        Collections.sort(result);
-        System.out.println(result.get(result.size() - 1));
-        System.out.println(result.get(0));
+        System.out.println(max);
+        System.out.println(min);
     }
 }
