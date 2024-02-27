@@ -30,7 +30,7 @@ public class Main {
 
         for(int i = 0; i <= 9; i++) {
             if(!visited[i]) {
-                if(!list.isEmpty() && !canGo(arr[list.size() - 1], list.get(list.size() - 1), i)) continue;
+                if(!list.isEmpty() && !canGo(arr[depth - 1], list.get(depth - 1), i)) continue;
                 visited[i] = true;
                 list.add(i);
                 go(depth + 1);
